@@ -9,6 +9,3 @@ __pycache__/
 # User uploads (runtime)
 uploads/*
 !uploads/.gitkeep
-
-# Model weights are too large for GitHub (>100 MB). Provide separately.
-model/model.safetensors

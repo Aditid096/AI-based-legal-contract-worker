@@ -19,11 +19,18 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-## Model weights
+## Model weights (Git LFS)
 
-The trained weights (`model/model.safetensors`, ~437 MB) are **not** included in this
-repository because they exceed GitHub's 100 MB file limit. Place the file at
-`model/model.safetensors` before running (the tokenizer and config are already included).
+The trained weights (`model/model.safetensors`, ~437 MB) are stored with
+[Git LFS](https://git-lfs.com). Install Git LFS **before** cloning so the real file
+is fetched instead of a small pointer:
+
+```bash
+git lfs install
+git clone https://github.com/Aditid096/AI-based-legal-contract-worker.git
+```
+
+If you already cloned without LFS, run `git lfs pull` inside the repo to download the weights.
 
 ## Run
 
