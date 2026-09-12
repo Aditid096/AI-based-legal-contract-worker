@@ -1,0 +1,41 @@
+<!-- templates/index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AI Contract Risk Analyzer</title>
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <h1>AI Contract Risk Analyzer</h1>
+      <p class="lead">Paste contract text or upload a PDF. We'll extract risky clauses and give a weighted risk percentage.</p>
+    </header>
+
+    <main class="card">
+      {% if error %}
+        <div class="alert">{{ error }}</div>
+      {% endif %}
+
+      <form action="{{ url_for('analyze') }}" method="post" enctype="multipart/form-data" class="form">
+        <label class="label">Upload PDF (optional)</label>
+        <input type="file" name="file" accept=".pdf" class="file-input">
+
+        <label class="label">Or paste contract text</label>
+        <textarea name="contract_text" placeholder="Paste contract here..." class="textarea"></textarea>
+
+        <div class="actions">
+          <button class="btn" type="submit">Analyze Contract</button>
+        </div>
+      </form>
+
+      <footer class="note">
+        Tip: For best results, paste the full contract text or a clean PDF (no scanned images).
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
