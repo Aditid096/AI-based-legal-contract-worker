@@ -38,8 +38,8 @@ function renderRiskChart(score) {
       const w = chart.width, h = chart.height, ctx = chart.ctx;
       ctx.restore();
       const fontSize = (h / 7).toFixed(2);
-      ctx.font = fontSize + "px Arial";
-      ctx.fillStyle = "#111827";
+      ctx.font = fontSize + "px system-ui, Arial, sans-serif";
+      ctx.fillStyle = getComputedStyle(document.body).color || "#111827";
       ctx.textBaseline = "middle";
       const text = score + "%";
       const textX = Math.round((w - ctx.measureText(text).width) / 2);
